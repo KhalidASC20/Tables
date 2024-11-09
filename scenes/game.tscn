@@ -11,9 +11,10 @@ size = Vector3(10, 1, 10)
 [node name="game" type="Node3D"]
 
 [node name="Table" parent="." instance=ExtResource("1_rgcri")]
-transform = Transform3D(0.869805, 0.324086, 0.372031, -0.493395, 0.571331, 0.655852, 0, -0.754022, 0.656849, -4.2001, 3.09348, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 physics_material_override = SubResource("PhysicsMaterial_mb1br")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
