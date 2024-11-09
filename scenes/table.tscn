@@ -12,43 +12,52 @@ size = Vector3(0.1, 1, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_6hcu0"]
 size = Vector3(0.1, 1, 0.1)
 
-[node name="Table" type="RigidBody3D"]
+[node name="Table" type="Node3D"]
+
+[node name="TableTop" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="TableTop" type="CollisionShape3D" parent="."]
+[node name="TableTop" type="CollisionShape3D" parent="TableTop"]
 shape = SubResource("BoxShape3D_qakp3")
 
-[node name="TableTopMesh" type="MeshInstance3D" parent="TableTop"]
+[node name="TableTopMesh" type="MeshInstance3D" parent="TableTop/TableTop"]
 mesh = SubResource("BoxMesh_yrcck")
 skeleton = NodePath("../../..")
 
-[node name="LegRF" type="CollisionShape3D" parent="."]
+[node name="TableLegs" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LegRF" type="CollisionShape3D" parent="TableLegs" groups=["Legs"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, 0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegRFMesh" type="MeshInstance3D" parent="LegRF"]
+[node name="LegRFMesh" type="MeshInstance3D" parent="TableLegs/LegRF"]
 mesh = SubResource("BoxMesh_6hcu0")
 skeleton = NodePath("../../LegRB")
 
-[node name="LegLF" type="CollisionShape3D" parent="."]
+[node name="LegLF" type="CollisionShape3D" parent="TableLegs" groups=["Legs"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, 0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegLFMesh" type="MeshInstance3D" parent="LegLF"]
+[node name="LegLFMesh" type="MeshInstance3D" parent="TableLegs/LegLF"]
 mesh = SubResource("BoxMesh_6hcu0")
 skeleton = NodePath("../../LegRB")
 
-[node name="LegRB" type="CollisionShape3D" parent="."]
+[node name="LegRB" type="CollisionShape3D" parent="TableLegs" groups=["Legs"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, -0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegRBMesh" type="MeshInstance3D" parent="LegRB"]
+[node name="LegRBMesh" type="MeshInstance3D" parent="TableLegs/LegRB"]
 mesh = SubResource("BoxMesh_6hcu0")
 
-[node name="LegLB" type="CollisionShape3D" parent="."]
+[node name="LegLB" type="CollisionShape3D" parent="TableLegs" groups=["Legs"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, -0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegLBMesh" type="MeshInstance3D" parent="LegLB"]
+[node name="LegLBMesh" type="MeshInstance3D" parent="TableLegs/LegLB"]
 mesh = SubResource("BoxMesh_6hcu0")
 skeleton = NodePath("../../LegRB")
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="."]
+node_a = NodePath("../TableTop")
+node_b = NodePath("../TableLegs")
