@@ -1,15 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cga8o56cjq4dn"]
+[gd_scene load_steps=5 format=3 uid="uid://cga8o56cjq4dn"]
 
 [ext_resource type="PackedScene" uid="uid://da4pldlw1eux4" path="res://scenes/player.tscn" id="1_25am5"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_qakp3"]
-size = Vector3(1, 1.00281, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_yrcck"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_frbb1"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_6hcu0"]
+[ext_resource type="PackedScene" uid="uid://dom6625fyunry" path="res://scenes/table.tscn" id="1_rgcri"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mb1br"]
 
@@ -17,54 +9,7 @@ size = Vector3(1, 1.00281, 1)
 
 [node name="game" type="Node3D"]
 
-[node name="Table" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137052, 2.38936, 0)
-
-[node name="RigidBody3D" type="RigidBody3D" parent="Table"]
-
-[node name="TableTop" type="CollisionShape3D" parent="Table/RigidBody3D"]
-transform = Transform3D(2.11137, 0, 0, 0, 0.321898, 0, 0, 0, 1.40204, 0, 0.00140381, 0)
-shape = SubResource("BoxShape3D_qakp3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/RigidBody3D/TableTop"]
-transform = Transform3D(1.00426, 0, 0, 0, 0.870407, 0, 0, 0, 1.08491, 0, -0.00436115, 0)
-mesh = SubResource("BoxMesh_yrcck")
-skeleton = NodePath("../../..")
-
-[node name="Leg1" type="CollisionShape3D" parent="Table/RigidBody3D"]
-transform = Transform3D(0.081372, 0, 0, 0, 1, 0, 0, 0, 0.109227, 1.00828, -0.363953, -0.706418)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/RigidBody3D/Leg1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.138626, 0, 0)
-mesh = SubResource("BoxMesh_6hcu0")
-
-[node name="Leg2" type="CollisionShape3D" parent="Table/RigidBody3D"]
-transform = Transform3D(0.081372, 0, 0, 0, 1, 0, 0, 0, 0.109227, 1.00828, -0.363953, 0.709464)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Table/RigidBody3D/Leg2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.143215, 0, 0.0111456)
-mesh = SubResource("BoxMesh_6hcu0")
-skeleton = NodePath("../../Leg1")
-
-[node name="Leg3" type="CollisionShape3D" parent="Table/RigidBody3D"]
-transform = Transform3D(0.081372, 0, 0, 0, 1, 0, 0, 0, 0.109227, -1.01497, -0.363953, 0.709464)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Table/RigidBody3D/Leg3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0574303, 0, 0.0111451)
-mesh = SubResource("BoxMesh_6hcu0")
-skeleton = NodePath("../../Leg1")
-
-[node name="Leg4" type="CollisionShape3D" parent="Table/RigidBody3D"]
-transform = Transform3D(0.081372, 0, 0, 0, 1, 0, 0, 0, 0.109227, -1.01497, -0.363953, -0.707041)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Table/RigidBody3D/Leg4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0574303, 0, 0.00546265)
-mesh = SubResource("BoxMesh_6hcu0")
-skeleton = NodePath("../../Leg1")
+[node name="Table" parent="." instance=ExtResource("1_rgcri")]
 
 [node name="ground" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_mb1br")
