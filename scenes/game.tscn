@@ -5,17 +5,19 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mb1br"]
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3ddht"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgno0"]
+size = Vector3(10, 1, 10)
 
 [node name="game" type="Node3D"]
 
 [node name="Table" parent="." instance=ExtResource("1_rgcri")]
+transform = Transform3D(0.869805, 0.324086, 0.372031, -0.493395, 0.571331, 0.655852, 0, -0.754022, 0.656849, -3.05327, 3.09348, 0)
 
 [node name="ground" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_mb1br")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
-shape = SubResource("WorldBoundaryShape3D_3ddht")
+shape = SubResource("BoxShape3D_fgno0")
 
 [node name="player" parent="." instance=ExtResource("1_25am5")]
 transform = Transform3D(0.00975625, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.00975625, 3, 1, 0)
