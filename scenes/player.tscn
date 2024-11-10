@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://da4pldlw1eux4"]
+[gd_scene load_steps=6 format=3 uid="uid://da4pldlw1eux4"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ld3ue"]
+[ext_resource type="PackedScene" uid="uid://dnlh0q7i0gyxa" path="res://interact/interact_ray.tscn" id="2_md38y"]
+[ext_resource type="Texture2D" uid="uid://c1ij75253p4u3" path="res://player/cross_hair_g.png" id="3_0so3j"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ubf36"]
 
@@ -14,3 +16,45 @@ mesh = SubResource("CapsuleMesh_ubf36")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_r3bju")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.169312, 0)
+
+[node name="interact_ray" parent="Head/Camera3D" instance=ExtResource("2_md38y")]
+transform = Transform3D(1, 0, 0, 0, 0.208972, 0, 0, 0, 1, 0, -0.119751, 0)
+
+[node name="hand" type="Marker3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.169312, -3.00089)
+
+[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Head/Camera3D"]
+node_a = NodePath("../StaticBody3D")
+linear_limit_x/enabled = false
+linear_limit_y/enabled = false
+linear_limit_z/enabled = false
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.17818)
+
+[node name="ui" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1156.0
+offset_bottom = 652.0
+
+[node name="TextureRect" type="TextureRect" parent="ui"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -105.0
+offset_right = 105.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0so3j")
