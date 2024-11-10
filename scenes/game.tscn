@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cga8o56cjq4dn"]
 
 [ext_resource type="PackedScene" uid="uid://da4pldlw1eux4" path="res://scenes/player.tscn" id="1_25am5"]
-[ext_resource type="PackedScene" uid="uid://dom6625fyunry" path="res://scenes/table.tscn" id="1_rgcri"]
+[ext_resource type="PackedScene" uid="uid://dom6625fyunry" path="res://scenes/interacTable.tscn" id="1_rgcri"]
 [ext_resource type="PackedScene" uid="uid://0dlljjveo8ig" path="res://scenes/block.tscn" id="3_7xnvo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mb1br"]
