@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ro6vl0kxr4b"]
+
+[ext_resource type="Material" uid="uid://deaifaqoebcwp" path="res://textures/default_grid.tres" id="1_6e0ix"]
+
+[node name="level0" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.4362, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153198, 0, -0.74176)
+size = Vector3(11.4255, 1, 15.0702)
+material = ExtResource("1_6e0ix")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGCombiner3D/CSGBox3D"]
+visible = false

@@ -12,6 +12,7 @@ size = Vector3(10, 1, 10)
 [node name="game" type="Node3D"]
 
 [node name="Table" parent="." instance=ExtResource("1_rgcri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.66087)
 
 [node name="ground" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
@@ -27,3 +28,4 @@ transform = Transform3D(0.00975625, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.009756
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63643, 0)
 
 [node name="block" parent="." instance=ExtResource("3_7xnvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.576338)

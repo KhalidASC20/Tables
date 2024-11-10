@@ -444,10 +444,10 @@ _data = {
 "stretch_z": SubResource("Animation_oxerp")
 }
 
-[node name="Table" type="Node3D"]
+[node name="Table" type="Node3D" groups=["pickups"]]
 script = ExtResource("1_6ud5r")
 
-[node name="Tabletop" type="RigidBody3D" parent="."]
+[node name="Tabletop" type="RigidBody3D" parent="." groups=["pickups"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="TableTopCollider" type="CollisionShape3D" parent="Tabletop"]
@@ -461,7 +461,7 @@ skeleton = NodePath("../../..")
 node_a = NodePath("..")
 node_b = NodePath("../../Legs")
 
-[node name="Legs" type="RigidBody3D" parent="."]
+[node name="Legs" type="RigidBody3D" parent="." groups=["pickups"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="LegRF" type="CollisionShape3D" parent="Legs"]
