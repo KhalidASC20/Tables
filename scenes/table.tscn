@@ -17,55 +17,50 @@ size = Vector3(0.1, 1, 0.1)
 [node name="Table" type="Node3D"]
 script = ExtResource("1_6ud5r")
 
-[node name="TableTop" type="Node3D" parent="."]
-
-[node name="TableTopCollider" type="RigidBody3D" parent="TableTop"]
+[node name="Tabletop" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="TableTop" type="CollisionShape3D" parent="TableTop/TableTopCollider"]
+[node name="TableTop" type="CollisionShape3D" parent="Tabletop"]
 shape = SubResource("BoxShape3D_qakp3")
 
-[node name="TableTopMesh" type="MeshInstance3D" parent="TableTop/TableTopCollider/TableTop"]
+[node name="TableTopMesh" type="MeshInstance3D" parent="Tabletop/TableTop"]
 mesh = SubResource("BoxMesh_yrcck")
-skeleton = NodePath("../../../..")
+skeleton = NodePath("../../..")
 
-[node name="TableLegs" type="Node3D" parent="."]
+[node name="StaticPin" type="Generic6DOFJoint3D" parent="Tabletop"]
+node_a = NodePath("..")
+node_b = NodePath("../../Legs")
 
-[node name="LegsColliders" type="RigidBody3D" parent="TableLegs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="Legs" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 
-[node name="LegRF" type="CollisionShape3D" parent="TableLegs/LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, 0.7)
+[node name="LegRF" type="CollisionShape3D" parent="Legs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, 0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegRFMesh" type="MeshInstance3D" parent="TableLegs/LegsColliders/LegRF"]
+[node name="LegRFMesh" type="MeshInstance3D" parent="Legs/LegRF"]
 mesh = SubResource("BoxMesh_6hcu0")
 skeleton = NodePath("../../LegRB")
 
-[node name="LegLF" type="CollisionShape3D" parent="TableLegs/LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, 0.7)
+[node name="LegLF" type="CollisionShape3D" parent="Legs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, 0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegLFMesh" type="MeshInstance3D" parent="TableLegs/LegsColliders/LegLF"]
+[node name="LegLFMesh" type="MeshInstance3D" parent="Legs/LegLF"]
 mesh = SubResource("BoxMesh_6hcu0")
 skeleton = NodePath("../../LegRB")
 
-[node name="LegRB" type="CollisionShape3D" parent="TableLegs/LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, -0.7)
+[node name="LegRB" type="CollisionShape3D" parent="Legs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 0, -0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegRBMesh" type="MeshInstance3D" parent="TableLegs/LegsColliders/LegRB"]
+[node name="LegRBMesh" type="MeshInstance3D" parent="Legs/LegRB"]
 mesh = SubResource("BoxMesh_6hcu0")
 
-[node name="LegLB" type="CollisionShape3D" parent="TableLegs/LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, -0.7)
+[node name="LegLB" type="CollisionShape3D" parent="Legs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 0, -0.7)
 shape = SubResource("BoxShape3D_frbb1")
 
-[node name="LegLBMesh" type="MeshInstance3D" parent="TableLegs/LegsColliders/LegLB"]
+[node name="LegLBMesh" type="MeshInstance3D" parent="Legs/LegLB"]
 mesh = SubResource("BoxMesh_6hcu0")
 skeleton = NodePath("../../LegRB")
-
-[node name="StaticPin" type="Generic6DOFJoint3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-node_a = NodePath("../TableTop/TableTopCollider")
-node_b = NodePath("../TableLegs/LegsColliders")
