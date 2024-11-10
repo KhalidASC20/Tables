@@ -1,29 +1,31 @@
 extends Node3D
-
-const LOWER_BOUND = 0.5
-const UPPER_BOUND = 5
-
-@onready var top = self.find_children("TableTop*") + [$StaticPin]
-@onready var legs = self.find_children("Leg*")
+@onready var stretcher: AnimationPlayer = $AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(legs)
-	print(top)
-	pass
+	stretch("z")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	for leg in legs:
-		leg.transform = leg.transform.scaled(Vector3(1, 1.001, 1))
-	for node in top:
-		node.transform = node.transform
-		
-		
+	print($Tabletop.global_position)
+	print($Tabletop/StaticPin.global_position)
+	print(stretcher.is_playing())
+	print("-------")
 	pass
 
-func stretch(x, y, z) -> void:
-	pass
+func stretch(axis) -> void:
+	if axis == "x":
+		stretcher.play("stretch_x")
+		stretcher.advance(0)
+		return
+	elif axis == "y":
+		stretcher.play("stretch_y")
+		stretcher.advance(0)
+		return
+	elif axis == "z":
+		stretcher.play("stretch_z")
+		stretcher.advance(0)
+		return
 
 func reset() -> void:
 	pass
