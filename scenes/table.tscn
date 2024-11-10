@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://dom6625fyunry"]
-=======
 [gd_scene load_steps=11 format=3 uid="uid://dom6625fyunry"]
 
 [ext_resource type="Script" path="res://scripts/stretch-table.gd" id="1_6ud5r"]
->>>>>>> table-physics
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qakp3"]
 size = Vector3(2, 0.25, 1.5)
@@ -17,157 +13,6 @@ size = Vector3(0.1, 1, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_6hcu0"]
 size = Vector3(0.1, 1, 0.1)
-
-<<<<<<< HEAD
-[node name="Table" type="Node3D" groups=["pickups"]]
-
-[node name="TableTopCollider" type="RigidBody3D" parent="." groups=["pickups"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="TableTop" type="CollisionShape3D" parent="TableTopCollider"]
-shape = SubResource("BoxShape3D_qakp3")
-
-[node name="TableTopMesh" type="MeshInstance3D" parent="TableTopCollider/TableTop"]
-mesh = SubResource("BoxMesh_yrcck")
-skeleton = NodePath("../../..")
-
-[node name="StaticPin" type="Generic6DOFJoint3D" parent="TableTopCollider"]
-node_a = NodePath("..")
-node_b = NodePath("../../LegsColliders")
-
-[node name="LegsColliders" type="RigidBody3D" parent="." groups=["pickups"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="LegRF" type="CollisionShape3D" parent="LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, 0.7)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="LegRFMesh" type="MeshInstance3D" parent="LegsColliders/LegRF"]
-mesh = SubResource("BoxMesh_6hcu0")
-skeleton = NodePath("../../LegRB")
-
-[node name="LegLF" type="CollisionShape3D" parent="LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, 0.7)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="LegLFMesh" type="MeshInstance3D" parent="LegsColliders/LegLF"]
-mesh = SubResource("BoxMesh_6hcu0")
-skeleton = NodePath("../../LegRB")
-
-[node name="LegRB" type="CollisionShape3D" parent="LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, -0.7)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="LegRBMesh" type="MeshInstance3D" parent="LegsColliders/LegRB"]
-mesh = SubResource("BoxMesh_6hcu0")
-
-[node name="LegLB" type="CollisionShape3D" parent="LegsColliders"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, -0.7)
-shape = SubResource("BoxShape3D_frbb1")
-
-[node name="LegLBMesh" type="MeshInstance3D" parent="LegsColliders/LegLB"]
-mesh = SubResource("BoxMesh_6hcu0")
-skeleton = NodePath("../../LegRB")
-=======
-[sub_resource type="Animation" id="Animation_hj6gv"]
-resource_name = "stretch_y"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Tabletop:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0, 4, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Legs:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0, 4, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Legs/LegRF:shape:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.1, 1, 0.1), Vector3(0.1, 4, 0.1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Legs/LegRF/LegRFMesh:mesh:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.1, 1, 0.1), Vector3(0.1, 4, 0.1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Legs/LegRF:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.95, -0.5, 0.7), Vector3(0.95, -2, 0.7)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Legs/LegLF:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.95, -0.5, 0.7), Vector3(-0.95, -2, 0.7)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Legs/LegRB:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.95, -0.5, -0.7), Vector3(0.95, -2, -0.7)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Legs/LegLB:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.95, -0.5, -0.7), Vector3(-0.95, -2, -0.7)]
-}
 
 [sub_resource type="Animation" id="Animation_cpqfw"]
 length = 0.001
@@ -392,6 +237,106 @@ tracks/7/keys = {
 "values": [Vector3(-0.95, -0.5, -0.7), Vector3(-3.95, -0.5, -0.7)]
 }
 
+[sub_resource type="Animation" id="Animation_hj6gv"]
+resource_name = "stretch_y"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tabletop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Legs:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(0, 4, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Legs/LegRF:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1), Vector3(0.1, 4, 0.1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Legs/LegRF/LegRFMesh:mesh:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1), Vector3(0.1, 4, 0.1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Legs/LegRF:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, 0.7), Vector3(0.95, -2, 0.7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Legs/LegLF:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, 0.7), Vector3(-0.95, -2, 0.7)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Legs/LegRB:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, -0.7), Vector3(0.95, -2, -0.7)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Legs/LegLB:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, -0.7), Vector3(-0.95, -2, -0.7)]
+}
+
 [sub_resource type="Animation" id="Animation_oxerp"]
 resource_name = "stretch_z"
 tracks/0/type = "value"
@@ -554,4 +499,3 @@ skeleton = NodePath("../../LegRB")
 libraries = {
 "": SubResource("AnimationLibrary_tumh8")
 }
->>>>>>> table-physics
