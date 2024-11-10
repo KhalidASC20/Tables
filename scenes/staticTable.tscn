@@ -1,0 +1,424 @@
+[gd_scene load_steps=16 format=3 uid="uid://dx3vwjtla2vui"]
+
+[ext_resource type="Texture2D" uid="uid://q83ge7vgtcm1" path="res://textures/table-textures/static/tabletop-static/concrete_floor_painted_diff_4k.png" id="2_mxbb7"]
+[ext_resource type="Texture2D" uid="uid://bfran8evyay0h" path="res://textures/table-textures/static/tabletop-static/concrete_floor_painted_nor_gl_4k.png" id="3_8fxfn"]
+[ext_resource type="Texture2D" uid="uid://cccspgahlvrk4" path="res://textures/table-textures/static/tabletop-static/concrete_floor_painted_rough_4k.png" id="4_7ap2q"]
+[ext_resource type="Material" uid="uid://cm1m145e4o3s8" path="res://textures/table-textures/static/legs-static/staticTable-legs-material.tres" id="5_auoc8"]
+[ext_resource type="Material" uid="uid://db6nsgk38g2oh" path="res://textures/table-textures/interactible/legs-interactible/interacTable-legs-material.tres" id="5_iil03"]
+
+[sub_resource type="Animation" id="Animation_cpqfw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticLegs/LegRF:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticLegs/LegRF/LegRFMesh:mesh:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticLegs/LegRF:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, 0.7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticLegs/LegLF:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StaticLegs/LegRB:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, -0.7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StaticLegs/LegLB:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, -0.7)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("StaticTableTop/TableTopCollider:shape:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2, 0.25, 1.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StaticTableTop/TableTopCollider/TableTopMesh:mesh:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2, 0.25, 1.5)]
+}
+
+[sub_resource type="Animation" id="Animation_38xek"]
+resource_name = "stretch_x"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticTableTop/TableTopCollider:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2, 0.25, 1.5), Vector3(8, 0.25, 1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticTableTop/TableTopCollider/TableTopMesh:mesh:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2, 0.25, 1.5), Vector3(8, 0.25, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticLegs/LegRF:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, 0.7), Vector3(3.95, -0.5, 0.7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticLegs/LegLF:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, 0.7), Vector3(-3.95, -0.5, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StaticLegs/LegRB:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, -0.7), Vector3(3.95, -0.5, -0.7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StaticLegs/LegLB:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, -0.7), Vector3(-3.95, -0.5, -0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_hj6gv"]
+resource_name = "stretch_y"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticLegs/LegRF:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1), Vector3(0.1, 4, 0.1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticLegs/LegRF/LegRFMesh:mesh:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.1, 1, 0.1), Vector3(0.1, 4, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticLegs/LegRF:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, 0.7), Vector3(0.95, -2, 0.7)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticLegs/LegLF:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, 0.7), Vector3(-0.95, -2, 0.7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StaticLegs/LegRB:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, -0.7), Vector3(0.95, -2, -0.7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StaticLegs/LegLB:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, -0.7), Vector3(-0.95, -2, -0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_oxerp"]
+resource_name = "stretch_z"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticTableTop/TableTopCollider:shape:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2, 0.25, 1.5), Vector3(2, 0.25, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticTableTop/TableTopCollider/TableTopMesh:mesh:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2, 0.25, 1.5), Vector3(2, 0.25, 6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticLegs/LegRF:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, 0.7), Vector3(0.95, -0.5, 2.95)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StaticLegs/LegLF:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, 0.7), Vector3(-0.95, -0.5, 2.95)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StaticLegs/LegRB:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.95, -0.5, -0.7), Vector3(0.95, -0.5, -2.95)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StaticLegs/LegLB:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.95, -0.5, -0.7), Vector3(-0.95, -0.5, -2.95)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tumh8"]
+_data = {
+"RESET": SubResource("Animation_cpqfw"),
+"stretch_x": SubResource("Animation_38xek"),
+"stretch_y": SubResource("Animation_hj6gv"),
+"stretch_z": SubResource("Animation_oxerp")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qakp3"]
+size = Vector3(2, 0.25, 1.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yrcck"]
+size = Vector3(2, 0.25, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gfn8d"]
+albedo_texture = ExtResource("2_mxbb7")
+roughness_texture = ExtResource("4_7ap2q")
+normal_enabled = true
+normal_texture = ExtResource("3_8fxfn")
+uv1_scale = Vector3(2, 2, 2)
+uv1_offset = Vector3(0, 0.5, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_frbb1"]
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6hcu0"]
+size = Vector3(0.1, 1, 0.1)
+
+[node name="StaticTable" type="Node3D" groups=["pickups"]]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tumh8")
+}
+
+[node name="StaticTableTop" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="TableTopCollider" type="CollisionShape3D" parent="StaticTableTop"]
+shape = SubResource("BoxShape3D_qakp3")
+
+[node name="TableTopMesh" type="MeshInstance3D" parent="StaticTableTop/TableTopCollider"]
+mesh = SubResource("BoxMesh_yrcck")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_gfn8d")
+
+[node name="StaticPin" type="Generic6DOFJoint3D" parent="StaticTableTop"]
+node_a = NodePath("..")
+node_b = NodePath("../../StaticLegs")
+
+[node name="StaticLegs" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LegRF" type="CollisionShape3D" parent="StaticLegs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, 0.7)
+shape = SubResource("BoxShape3D_frbb1")
+
+[node name="LegRFMesh" type="MeshInstance3D" parent="StaticLegs/LegRF"]
+mesh = SubResource("BoxMesh_6hcu0")
+skeleton = NodePath("../../LegRB")
+surface_material_override/0 = ExtResource("5_auoc8")
+
+[node name="LegLF" type="CollisionShape3D" parent="StaticLegs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, 0.7)
+shape = SubResource("BoxShape3D_frbb1")
+
+[node name="LegLFMesh" type="MeshInstance3D" parent="StaticLegs/LegLF"]
+material_override = ExtResource("5_auoc8")
+mesh = SubResource("BoxMesh_6hcu0")
+skeleton = NodePath("../../LegRB")
+surface_material_override/0 = ExtResource("5_iil03")
+
+[node name="LegRB" type="CollisionShape3D" parent="StaticLegs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, -0.5, -0.7)
+shape = SubResource("BoxShape3D_frbb1")
+
+[node name="LegRBMesh" type="MeshInstance3D" parent="StaticLegs/LegRB"]
+material_override = ExtResource("5_auoc8")
+mesh = SubResource("BoxMesh_6hcu0")
+surface_material_override/0 = ExtResource("5_iil03")
+
+[node name="LegLB" type="CollisionShape3D" parent="StaticLegs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, -0.5, -0.7)
+shape = SubResource("BoxShape3D_frbb1")
+
+[node name="LegLBMesh" type="MeshInstance3D" parent="StaticLegs/LegLB"]
+material_override = ExtResource("5_auoc8")
+mesh = SubResource("BoxMesh_6hcu0")
+skeleton = NodePath("../../LegRB")
+surface_material_override/0 = ExtResource("5_iil03")
