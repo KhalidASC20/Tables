@@ -119,3 +119,7 @@ func _input(event):
 			picked_obj.get_parent().stretch("y")
 		if Input.is_action_just_pressed("stretch_z"):
 			picked_obj.get_parent().stretch("z")
+			
+	if Input.is_action_just_pressed("quit"):
+		self.get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+		self.get_tree().quit()
