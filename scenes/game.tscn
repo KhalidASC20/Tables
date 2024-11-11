@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://da4pldlw1eux4" path="res://scenes/player.tscn" id="1_25am5"]
 [ext_resource type="PackedScene" uid="uid://dom6625fyunry" path="res://scenes/interacTable.tscn" id="1_rgcri"]
-[ext_resource type="PackedScene" uid="uid://0dlljjveo8ig" path="res://scenes/block.tscn" id="3_7xnvo"]
+[ext_resource type="PackedScene" uid="uid://ro6vl0kxr4b" path="res://scenes/level_0.tscn" id="4_xgy6a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mb1br"]
 
@@ -27,5 +27,5 @@ transform = Transform3D(0.00975625, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.009756
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63643, 0)
 
-[node name="block" parent="." instance=ExtResource("3_7xnvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.576338)
+[node name="level0" parent="." instance=ExtResource("4_xgy6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.5433, -1)
