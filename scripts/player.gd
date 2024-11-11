@@ -21,8 +21,9 @@ var locked = false
 @onready var joint: Generic6DOFJoint3D = $Head/Camera3D/Generic6DOFJoint3D
 @onready var staticbody: StaticBody3D = $Head/Camera3D/StaticBody3D
 
-
 var look_rot : Vector2
+
+const INTERAC_TABLE = "Tabletop"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -110,4 +111,11 @@ func _input(event):
 			interact_obj()
 		elif picked_obj != null:
 			remove_obj()
-		
+	
+	if picked_obj and picked_obj.get_name() == INTERAC_TABLE:
+		if Input.is_action_just_pressed("stretch_x"):
+			picked_obj.get_parent().stretch("x")
+		if Input.is_action_just_pressed("stretch_y"):
+			picked_obj.get_parent().stretch("y")
+		if Input.is_action_just_pressed("stretch_z"):
+			picked_obj.get_parent().stretch("z")

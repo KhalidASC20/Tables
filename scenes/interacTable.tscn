@@ -151,7 +151,6 @@ tracks/9/keys = {
 
 [sub_resource type="Animation" id="Animation_38xek"]
 resource_name = "stretch_x"
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -251,7 +250,6 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_hj6gv"]
 resource_name = "stretch_y"
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

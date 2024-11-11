@@ -1,31 +1,35 @@
 extends Node3D
 @onready var stretcher: AnimationPlayer = $AnimationPlayer
 
+var stretched: bool = false
+var last_played: String = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("start")
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#print($Tabletop.global_position)
-	#print($Tabletop/StaticPin.global_position)
-	#print(stretcher.is_playing())
-	#print("-------")
 	pass
 
 func stretch(axis) -> void:
-	if axis == "x":
-		stretcher.play("stretch_x")
-		stretcher.advance(0)
+	if stretcher.is_playing():
 		return
-	elif axis == "y":
-		stretcher.play("stretch_y")
-		stretcher.advance(0)
-		return
-	elif axis == "z":
-		stretcher.play("stretch_z")
-		stretcher.advance(0)
-		return
+	
+	if stretched:
+		stretcher.play_backwards(last_played)
+		stretched = false
+	else:
+		match axis:
+			"x":
+				last_played = "stretch_x"
+			"y":
+				last_played = "stretch_y"
+			"z":
+				last_played = "stretch_z"
+		
+		stretched = true
+		stretcher.play(last_played)
 
-func reset() -> void:
-	pass
+	stretcher.advance(0)
+	
