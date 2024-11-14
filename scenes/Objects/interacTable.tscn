@@ -1,18 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://dom6625fyunry"]
+[gd_scene load_steps=22 format=3 uid="uid://dom6625fyunry"]
 
 [ext_resource type="Script" path="res://scripts/stretch-table.gd" id="1_6ud5r"]
+[ext_resource type="BoxMesh" uid="uid://cccg31hdhj3ms" path="res://scenes/Objects/meshes-colliders/tabletop_mesh.tres" id="2_guipn"]
 [ext_resource type="Texture2D" uid="uid://dhfc1p3m2rov5" path="res://textures/table-textures/interactible/tabletop-interactible/wood_table_001_diff_4k.png" id="2_k5dev"]
+[ext_resource type="Shape3D" uid="uid://cpudetek7brxp" path="res://scenes/Objects/meshes-colliders/tabletop_collider.tres" id="2_rfpdd"]
 [ext_resource type="Texture2D" uid="uid://df6jp3kguotqd" path="res://textures/table-textures/interactible/tabletop-interactible/wood_table_001_nor_gl_4k.png" id="3_t0785"]
 [ext_resource type="Texture2D" uid="uid://b6gkw07wc3gai" path="res://textures/table-textures/interactible/tabletop-interactible/wood_table_001_rough_4k.png" id="4_tj5o2"]
-[ext_resource type="Material" uid="uid://db6nsgk38g2oh" path="res://textures/table-textures/interactible/legs-interactible/interacTable-legs-material.tres" id="5_gd5yr"]
+[ext_resource type="Texture2D" uid="uid://dnb8b0dekkvm5" path="res://textures/table-textures/interactible/legs-interactible/synthetic_wood_diff_4k.png" id="5_6tucm"]
+[ext_resource type="Texture2D" uid="uid://hp6wnk0yjtve" path="res://textures/table-textures/interactible/legs-interactible/synthetic_wood_nor_gl_4k.png" id="6_coy51"]
+[ext_resource type="Shape3D" uid="uid://uvwgndmp02q8" path="res://scenes/Objects/meshes-colliders/leg_collider.tres" id="7_0bh2i"]
+[ext_resource type="Texture2D" uid="uid://53cgp642um6g" path="res://textures/table-textures/interactible/legs-interactible/synthetic_wood_rough_4k.png" id="7_aljqo"]
+[ext_resource type="BoxMesh" uid="uid://c85an7hivfg0q" path="res://scenes/Objects/meshes-colliders/leg_mesh.tres" id="8_qfwk5"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_qakp3"]
-size = Vector3(2, 0.25, 1.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_yrcck"]
-size = Vector3(2, 0.25, 1.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xyug"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgr8c"]
 albedo_texture = ExtResource("2_k5dev")
 roughness_texture = ExtResource("4_tj5o2")
 normal_enabled = true
@@ -20,11 +20,33 @@ normal_texture = ExtResource("3_t0785")
 uv1_scale = Vector3(2, 2, 2)
 uv1_triplanar_sharpness = 2.2974
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_frbb1"]
-size = Vector3(0.1, 1, 0.1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5obn"]
+albedo_texture = ExtResource("5_6tucm")
+roughness_texture = ExtResource("7_aljqo")
+normal_enabled = true
+normal_texture = ExtResource("6_coy51")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_6hcu0"]
-size = Vector3(0.1, 1, 0.1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wculv"]
+albedo_texture = ExtResource("5_6tucm")
+roughness_texture = ExtResource("7_aljqo")
+normal_enabled = true
+normal_texture = ExtResource("6_coy51")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y0gbh"]
+albedo_texture = ExtResource("5_6tucm")
+roughness_texture = ExtResource("7_aljqo")
+normal_enabled = true
+normal_texture = ExtResource("6_coy51")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20mmb"]
+albedo_texture = ExtResource("5_6tucm")
+roughness_texture = ExtResource("7_aljqo")
+normal_enabled = true
+normal_texture = ExtResource("6_coy51")
+uv1_scale = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="Animation" id="Animation_cpqfw"]
 length = 0.001
@@ -459,14 +481,16 @@ script = ExtResource("1_6ud5r")
 
 [node name="Tabletop" type="RigidBody3D" parent="." groups=["pickups"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 3
+collision_mask = 3
 
 [node name="TableTopCollider" type="CollisionShape3D" parent="Tabletop"]
-shape = SubResource("BoxShape3D_qakp3")
+shape = ExtResource("2_rfpdd")
 
 [node name="TableTopMesh" type="MeshInstance3D" parent="Tabletop/TableTopCollider"]
-mesh = SubResource("BoxMesh_yrcck")
+mesh = ExtResource("2_guipn")
 skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_8xyug")
+surface_material_override/0 = SubResource("StandardMaterial3D_jgr8c")
 
 [node name="StaticPin" type="Generic6DOFJoint3D" parent="Tabletop"]
 node_a = NodePath("..")
@@ -477,38 +501,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="LegRF" type="CollisionShape3D" parent="Legs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, -0.5, 0.69)
-shape = SubResource("BoxShape3D_frbb1")
+shape = ExtResource("7_0bh2i")
 
 [node name="LegRFMesh" type="MeshInstance3D" parent="Legs/LegRF"]
-mesh = SubResource("BoxMesh_6hcu0")
+mesh = ExtResource("8_qfwk5")
 skeleton = NodePath("../../LegRB")
-surface_material_override/0 = ExtResource("5_gd5yr")
+surface_material_override/0 = SubResource("StandardMaterial3D_y5obn")
 
 [node name="LegLF" type="CollisionShape3D" parent="Legs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94, -0.5, 0.69)
-shape = SubResource("BoxShape3D_frbb1")
+shape = ExtResource("7_0bh2i")
 
 [node name="LegLFMesh" type="MeshInstance3D" parent="Legs/LegLF"]
-mesh = SubResource("BoxMesh_6hcu0")
+mesh = ExtResource("8_qfwk5")
 skeleton = NodePath("../../LegRB")
-surface_material_override/0 = ExtResource("5_gd5yr")
+surface_material_override/0 = SubResource("StandardMaterial3D_wculv")
 
 [node name="LegRB" type="CollisionShape3D" parent="Legs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.94, -0.5, -0.69)
-shape = SubResource("BoxShape3D_frbb1")
+shape = ExtResource("7_0bh2i")
 
 [node name="LegRBMesh" type="MeshInstance3D" parent="Legs/LegRB"]
-mesh = SubResource("BoxMesh_6hcu0")
-surface_material_override/0 = ExtResource("5_gd5yr")
+mesh = ExtResource("8_qfwk5")
+surface_material_override/0 = SubResource("StandardMaterial3D_y0gbh")
 
 [node name="LegLB" type="CollisionShape3D" parent="Legs"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94, -0.5, -0.69)
-shape = SubResource("BoxShape3D_frbb1")
+shape = ExtResource("7_0bh2i")
 
 [node name="LegLBMesh" type="MeshInstance3D" parent="Legs/LegLB"]
-mesh = SubResource("BoxMesh_6hcu0")
+mesh = ExtResource("8_qfwk5")
 skeleton = NodePath("../../LegRB")
-surface_material_override/0 = ExtResource("5_gd5yr")
+surface_material_override/0 = SubResource("StandardMaterial3D_20mmb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
