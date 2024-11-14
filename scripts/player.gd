@@ -112,7 +112,7 @@ func _input(event):
 		elif picked_obj != null:
 			remove_obj()
 	
-	if picked_obj :
+	if picked_obj and picked_obj.get_name() == INTERAC_TABLE:
 		if Input.is_action_just_pressed("stretch_x"):
 			picked_obj.get_parent().stretch("x")
 		if Input.is_action_just_pressed("stretch_y"):
