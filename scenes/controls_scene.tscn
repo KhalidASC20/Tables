@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnrmvvq7fgvqv"]
+
+[ext_resource type="Script" path="res://scenes/controls_scene.gd" id="1_qwcmf"]
+
+[node name="controls_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwcmf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = -157.0
+offset_top = 44.0
+offset_right = 43.0
+offset_bottom = 84.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "back
+"
+
+[node name="controls" type="Label" parent="."]
+layout_mode = 0
+offset_left = -141.0
+offset_top = -283.0
+offset_right = 287.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 30
+text = "AWSD to move
+E to pick up object
+While picked up
+Hold left click to rotate object
+Z to scale objects Z axis
+X to scale objects X axis
+C to scale objects Y axis"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/back" to="." method="_on_back_pressed"]

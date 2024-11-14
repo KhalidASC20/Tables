@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 9.5
+const JUMP_VELOCITY = 4.5
 #mouse
 var sensitivity = 0.5
 var min_angle = -80
@@ -100,7 +100,7 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if !locked:
 		rotate_head(event)
-	if Input.is_action_pressed("Lmouse"):
+	if Input.is_action_pressed("Lmouse") and picked_obj != null:
 		locked = true
 		rotate_obj(event)
 	if Input.is_action_just_released("Lmouse"):
@@ -112,7 +112,7 @@ func _input(event):
 		elif picked_obj != null:
 			remove_obj()
 	
-	if picked_obj and picked_obj.get_name() == INTERAC_TABLE:
+	if picked_obj :
 		if Input.is_action_just_pressed("stretch_x"):
 			picked_obj.get_parent().stretch("x")
 		if Input.is_action_just_pressed("stretch_y"):
