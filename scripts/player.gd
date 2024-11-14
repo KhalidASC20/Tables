@@ -49,6 +49,8 @@ func interact_obj():
 		print("PICKED UP")
 		picked_obj = collider
 		joint.set_node_b(picked_obj.get_path())
+		picked_obj.set_collision_mask_value(2, false)
+		picked_obj.set_collision_mask_value(1, false)
 	#check if object is part of a parent obejct
 		#var parent_node = collider.get_parent()
 		#if parent_node.is_in_group("pickups"):
@@ -57,6 +59,8 @@ func interact_obj():
 		
 func remove_obj():
 	if picked_obj != null:
+		picked_obj.set_collision_mask_value(2, true)
+		picked_obj.set_collision_mask_value(1, false)
 		picked_obj = null
 		joint.set_node_b(joint.get_path())
 		
