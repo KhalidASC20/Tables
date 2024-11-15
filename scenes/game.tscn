@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cga8o56cjq4dn"]
+[gd_scene load_steps=6 format=3 uid="uid://cga8o56cjq4dn"]
 
 [ext_resource type="PackedScene" uid="uid://da4pldlw1eux4" path="res://scenes/Objects/player.tscn" id="1_25am5"]
-[ext_resource type="PackedScene" uid="uid://dom6625fyunry" path="res://scenes/Objects/interacTable.tscn" id="1_rgcri"]
 [ext_resource type="PackedScene" uid="uid://dvnrtki2yltpp" path="res://scenes/Menus/win_scene.tscn" id="4_p4fqf"]
 [ext_resource type="PackedScene" uid="uid://ro6vl0kxr4b" path="res://scenes/level_0.tscn" id="4_xgy6a"]
 
@@ -22,27 +21,12 @@ physics_material_override = SubResource("PhysicsMaterial_mb1br")
 shape = SubResource("BoxShape3D_fgno0")
 
 [node name="player" parent="." instance=ExtResource("1_25am5")]
-transform = Transform3D(0.00975625, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.00975625, 3, 1, 0)
+transform = Transform3D(0.00975625, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.00975625, 3, 1.86553, 0)
 
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.63643, 0)
 
-[node name="level0" parent="." instance=ExtResource("4_xgy6a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -1.5433, -1)
-
 [node name="win_scene" parent="." instance=ExtResource("4_p4fqf")]
 visible = false
 
-[node name="interacTables" type="Node" parent="."]
-
-[node name="Table2" parent="interacTables" instance=ExtResource("1_rgcri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.0156)
-
-[node name="Table5" parent="interacTables" instance=ExtResource("1_rgcri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.0156)
-
-[node name="Table3" parent="interacTables" instance=ExtResource("1_rgcri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.16103)
-
-[node name="Table4" parent="interacTables" instance=ExtResource("1_rgcri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67742, 0.039732, 1.43795)
+[node name="level0" parent="." instance=ExtResource("4_xgy6a")]

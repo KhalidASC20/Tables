@@ -12,6 +12,12 @@ var picked_obj
 var pull_power = 4
 var rotation_power = 3
 var locked = false
+#scroll picked object
+var scroll_sensitivity := 0.5
+
+#min and max distance for scroll
+var min_scroll_distance:= 2.0
+var max_scroll_distance:= 10.0
 
 #reference to head
 @onready var head: Node3D = $Head
@@ -21,6 +27,7 @@ var locked = false
 @onready var joint: Generic6DOFJoint3D = $Head/Camera3D/Generic6DOFJoint3D
 @onready var staticbody: StaticBody3D = $Head/Camera3D/StaticBody3D
 
+var distance := 5.0
 var look_rot : Vector2
 
 const INTERAC_TABLE = "Tabletop"
@@ -49,8 +56,8 @@ func interact_obj():
 		print("PICKED UP")
 		picked_obj = collider
 		joint.set_node_b(picked_obj.get_path())
-		picked_obj.set_collision_mask_value(2, false)
-		picked_obj.set_collision_mask_value(1, false)
+		#picked_obj.set_collision_mask_value(2, false)
+		#picked_obj.set_collision_mask_value(1, false)
 	#check if object is part of a parent obejct
 		#var parent_node = collider.get_parent()
 		#if parent_node.is_in_group("pickups"):
@@ -59,8 +66,8 @@ func interact_obj():
 		
 func remove_obj():
 	if picked_obj != null:
-		picked_obj.set_collision_mask_value(2, true)
-		picked_obj.set_collision_mask_value(1, false)
+		#picked_obj.set_collision_mask_value(2, true)
+		#picked_obj.set_collision_mask_value(1, false)
 		picked_obj = null
 		joint.set_node_b(joint.get_path())
 		
@@ -115,6 +122,22 @@ func _input(event):
 			interact_obj()
 		elif picked_obj != null:
 			remove_obj()
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			#move object further
+			joint.translate_object_local(Vector3(0,0,1))
+			joint.translate_object_local(Vector3(0,0,1))
+			staticbody.translate(Vector3(0,0,1))
+			print("IM GETTING FURTHER")
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			#move object closer
+			#picked_obj = scroll_sensitivity
+			print("GET OVER HERE")
+	if picked_obj:
+		_update_object_position()
+		
+
+		
 	
 	if picked_obj and picked_obj.get_name() == INTERAC_TABLE:
 		if Input.is_action_just_pressed("stretch_x"):
@@ -127,3 +150,11 @@ func _input(event):
 	if Input.is_action_just_pressed("quit"):
 		self.get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		self.get_tree().quit()
+		
+func _update_object_position():
+	var forward_direction = -global_transform.basis.z
+	var new_position = global_transform.origin + forward_direction * distance
+		
+	picked_obj.global_transform.origin = new_position
+	joint.global_transform.origin = new_position
+	staticbody.global_transform.origin = new_position

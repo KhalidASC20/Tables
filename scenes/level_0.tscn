@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ro6vl0kxr4b"]
+[gd_scene load_steps=11 format=3 uid="uid://ro6vl0kxr4b"]
 
 [ext_resource type="Material" uid="uid://deaifaqoebcwp" path="res://textures/default_grid.tres" id="1_6e0ix"]
 [ext_resource type="Texture2D" uid="uid://bmpfl37oehwum" path="res://textures/texture_08.png" id="2_gjrxd"]
 [ext_resource type="PackedScene" uid="uid://dx3vwjtla2vui" path="res://scenes/Objects/staticTable.tscn" id="3_avw1q"]
 [ext_resource type="Script" path="res://scripts/win_platform.gd" id="4_cvc61"]
+[ext_resource type="FontFile" uid="uid://dkhfcf54lw6gq" path="res://fonts/PixelOperator-Bold.ttf" id="5_eduj8"]
+[ext_resource type="PackedScene" uid="uid://dom6625fyunry" path="res://scenes/Objects/interacTable.tscn" id="5_fjh1f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ylvg"]
 size = Vector3(10000, 2, 10000)
@@ -11,11 +13,12 @@ size = Vector3(10000, 2, 10000)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vqtam"]
 albedo_texture = ExtResource("2_gjrxd")
 uv1_triplanar = true
+uv1_world_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_io777"]
 size = Vector3(3.21246, 0.360413, 3.45801)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_twig2"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffpd3"]
 size = Vector3(2, 0.6, 1.5)
 
 [node name="level0" type="Node3D"]
@@ -43,8 +46,7 @@ material = ExtResource("1_6e0ix")
 shape = SubResource("BoxShape3D_3ylvg")
 
 [node name="platform" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254242, 3.69453, -4.65122)
-visible = false
+transform = Transform3D(0.99546, 0, 0.0951856, 0, 1, 0, -0.0951856, 0, 0.99546, -4.01796, 3.18068, -4.65122)
 size = Vector3(3.21246, 0.360413, 3.45801)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D/platform"]
@@ -58,7 +60,22 @@ shape = SubResource("BoxShape3D_io777")
 [node name="platform_table" type="Node" parent="."]
 
 [node name="StaticTable" parent="platform_table" instance=ExtResource("3_avw1q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.254242, 3.69453, -4.65122)
+transform = Transform3D(0.0745784, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0745784, 0.254242, 2.18686, -4.93723)
+
+[node name="StaticTable19" parent="platform_table" instance=ExtResource("3_avw1q")]
+transform = Transform3D(0.0745784, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0745784, -1.25132, 2.18686, -4.83013)
+
+[node name="StaticTable20" parent="platform_table" instance=ExtResource("3_avw1q")]
+transform = Transform3D(0.0745784, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0745784, 1.75423, 2.18686, -5.06505)
+
+[node name="StaticTable21" parent="platform_table" instance=ExtResource("3_avw1q")]
+transform = Transform3D(0.0745784, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0745784, 0.254242, 2.18686, -10.341)
+
+[node name="StaticTable22" parent="platform_table" instance=ExtResource("3_avw1q")]
+transform = Transform3D(0.0745784, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0745784, -1.25132, 2.18686, -10.2339)
+
+[node name="StaticTable23" parent="platform_table" instance=ExtResource("3_avw1q")]
+transform = Transform3D(0.0745784, 0, -0.997215, 0, 1, 0, 0.997215, 0, 0.0745784, 1.75423, 2.18686, -10.4688)
 
 [node name="StaticTable2" parent="platform_table" instance=ExtResource("3_avw1q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.17789, 1.28758)
@@ -112,10 +129,53 @@ transform = Transform3D(-1.30069e-07, 0, -4.33235, 0, 1, 0, 2.97563, 0, -1.89373
 transform = Transform3D(-1.30069e-07, 0, -4.33235, 0, 1, 0, 2.97563, 0, -1.89373e-07, 1.01187, 19.6615, 8.93401)
 
 [node name="Area3D" type="Area3D" parent="platform_table/StaticTable17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.773361, 0)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("4_cvc61")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="platform_table/StaticTable17/Area3D"]
-transform = Transform3D(1, 0, 7.10543e-15, 0, 0.999988, 0, 0, 0, 1, 0.00262165, 0.835825, -0.00212927)
-shape = SubResource("BoxShape3D_twig2")
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0.676622, 0)
+shape = SubResource("BoxShape3D_ffpd3")
+
+[node name="Label3D2" type="Label3D" parent="platform_table/StaticTable17"]
+transform = Transform3D(-0.115198, 0, -0.291218, 0, 1, 0, 0.20002, 0, -0.167722, 0, 6.06806, 0)
+billboard = 1
+text = "CRAZY WIN
+"
+font = ExtResource("5_eduj8")
+font_size = 1000
+outline_size = 100
+
+[node name="StaticTable24" parent="platform_table" instance=ExtResource("3_avw1q")]
+transform = Transform3D(0.18653, 0, -4.32383, 0, 1, 0, 2.96978, 0, 0.271577, -0.181108, 2.46946, -15.4579)
+
+[node name="Area3D" type="Area3D" parent="platform_table/StaticTable24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.773361, 0)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_cvc61")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="platform_table/StaticTable24/Area3D"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0.676622, 0)
+shape = SubResource("BoxShape3D_ffpd3")
+
+[node name="Label3D" type="Label3D" parent="platform_table/StaticTable24"]
+transform = Transform3D(0.0210664, 0, 0.335402, 0, 1, 0, -0.230368, 0, 0.0144693, 0, 4.15986, 0)
+billboard = 1
+text = "EASY WIN
+"
+font = ExtResource("5_eduj8")
+font_size = 200
+outline_size = 50
+
+[node name="interactable_table" type="Node" parent="."]
+
+[node name="Table" parent="interactable_table" instance=ExtResource("5_fjh1f")]
+transform = Transform3D(0.999566, 0, 0.0294743, 0, 1, 0, -0.0294743, 0, 0.999566, -4.0239, 3.37308, -4.40252)
+
+[node name="Table2" parent="interactable_table" instance=ExtResource("5_fjh1f")]
+transform = Transform3D(0.999566, 0, 0.0294743, 0, 1, 0, -0.0294743, 0, 0.999566, -1.19374, 1.11269, -2.08852)
 
 [connection signal="body_entered" from="platform_table/StaticTable17/Area3D" to="platform_table/StaticTable17/Area3D" method="_on_win_platform_body_entered"]
+[connection signal="body_entered" from="platform_table/StaticTable24/Area3D" to="platform_table/StaticTable24/Area3D" method="_on_win_platform_body_entered"]

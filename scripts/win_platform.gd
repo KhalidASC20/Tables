@@ -2,7 +2,7 @@ extends Area3D
 
 
 #@onready var win_scene: Label = $Label
-@onready var win_scene = preload("res://scenes//Menus//win_scene.tscn")
+@onready var win_scene = preload("res://scenes/Menus/win_scene.tscn")
 
 #@onready var win_scene: Control = $platform_table/StaticTable17/Control
 
